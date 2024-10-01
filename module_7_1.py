@@ -22,7 +22,6 @@ class Shop(Product):
             return ''
 
     def add(self, *products):
-        existing_products = self.get_products()
         for product in products:
             if product.name in self.get_products():
                 print(f'Продукт {product.name} уже есть в магазине')
