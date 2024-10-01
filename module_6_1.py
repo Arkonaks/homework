@@ -1,13 +1,15 @@
 class Animal:
+    alive = True
+    fed = False
+
     def __init__(self, name):
-        self.alive = True
-        self.fed = False
         self.name = name
 
 
 class Plant:
+    edible = False
+
     def __init__(self, name):
-        self.edible = False
         self.name = name
 
 
@@ -32,15 +34,17 @@ class Predator(Animal):
 
 
 class Flower(Plant):
+    edible = False
+
     def __init__(self, name):
         self.name = name
-        self.edible = False
 
 
 class Fruit(Plant):
+    edible = True
+
     def __init__(self, name):
         self.name = name
-        self.edible = True
 
 
 a1 = Predator('Волк с Уолл-Стрит')
