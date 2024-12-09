@@ -3,7 +3,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
 import asyncio
 
-api = ''
+api = '8028469063:AAE4US1Nm89Y0RXPEFBp5-jMqOfLhoFSCEc'
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -41,6 +41,14 @@ async def set_calories(message, state):
     calories = 10 * int(data.get('weight')) + 6.25 * int(data.get('growth')) - 5 * int(data.get('age')) + 5
     await message.answer(f'Ваша норма калорий: {calories}')
     await state.finish()
+
+@dp.message_handler(commands='start')
+async def start(message):
+    await message.answer('Привет! Я бот помогающий твоему здоровью.')
+
+@dp.message_handler()
+async def all_message(message):
+    await message.answer('Введите команду /start, чтобы начать общение.')
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
