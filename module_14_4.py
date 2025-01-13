@@ -30,7 +30,6 @@ class UserState(StatesGroup):
 async def get_buying_list(message):
     products = get_all_products()
     for title, description, price in products:
- #       title, description, price, image = product
         with open('images/1.png', 'rb') as img:
             await message.answer_photo(img, f'Название: {title} | Описание: {description} | Цена: {price}')
 
